@@ -1,0 +1,26 @@
+{% include "gameboard/header.html" %}
+<body>
+    <section id="welcome">
+        <h2>Welcome to {{ app_name }}</h2>
+    </section>
+    <section id="list-products">
+        <div class="content-products">
+            {% for product in list_games %}
+                <a href="{% url 'game' product.id %}">
+                    <div class="card">
+                    <img src="{{ product.image_url }}" alt="image">
+                    <div class="title-card">
+                         <h3>{{ product.name }}</h3><span>({% with product.year|date:"Y" as year %}{{ year }}{% endwith %})</span>
+                    </div>
+                    <h4>Players : {{ product.number_of_players }}</h4>
+                    <div class="card-price">
+                        <button>{{ product.price }} €</button>
+                    </div>
+
+                </div>
+                </a>
+            {% endfor %}
+        </div>
+
+    </section>
+</body>

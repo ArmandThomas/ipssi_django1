@@ -1,0 +1,35 @@
+{% include "gameboard/header.html" %}
+{% load static %}
+<body>
+    <div class="info-game">
+         <section id="list-products" class="d-flex">
+             <img src="{{ game.image_url }}"/>
+             <div class="content-info-game">
+                <h2>{{ game.name }}</h2>
+                <h4>{{ game.description_trunc }}</h4>
+                 <hr/>
+                 <div class="more-info-game">
+                     <div>
+                         <h3>Min : {{ game.number_of_players }} - Max : {{ game.number_of_players|add:game.number_of_players }}</h3>
+                        <h4>Players</h4>
+                     </div>
+                     <div>
+                         <h3>{{ game.duration }} Min</h3>
+                        <h4>Playing Time</h4>
+                     </div>
+                 </div>
+                 <h5>Publisher : {{ game.publisher }}</h5>
+                 <h5>Categories : {{ game.category.all|join:", " }}</h5>
+             </div>
+             <div class="card-price game-price">
+                 <h3>{{ game.price }} €</h3>
+                 <img src="{% static 'gameboard/img/shopping-cart.png' %}" />
+             </div>
+         </section>
+
+    </div>
+    <section id="description-game">
+        <h2>Description</h2>
+        <p>{{ game.description }}</p>
+    </section>
+</body>

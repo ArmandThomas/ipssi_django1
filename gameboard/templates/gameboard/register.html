@@ -1,0 +1,22 @@
+{% include "gameboard/header.html" %}
+<body>
+    <div class="auth-content">
+        <h4>Register</h4>
+          <div class="input-content">
+            <form>
+                <div>
+                    <h5 for="username">Username</h5>
+                    <input type="text" name="username" placeholder="Username">
+                </div>
+                <div>
+                    <h5 for="password">Password</h5>
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <a href="{% url 'login' %}">
+            <button class="btn btn-primary">Sign in</button>
+        </a>
+    </div>
+</body>
